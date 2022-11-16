@@ -2,13 +2,17 @@
   "name": "three_project",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/Kori000/three_project.git",
-  "author": "Kori <kexin@korix.top>",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "pacel build src/index.html"
+  },
   "license": "MIT",
   "devDependencies": {
     "parcel": "^2.8.0"
   },
   "dependencies": {
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.11.3",
     "three": "^0.146.0"
   }
 }

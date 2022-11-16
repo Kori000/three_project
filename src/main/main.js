@@ -1,7 +1,10 @@
 import * as THREE from 'three'
 
+// 引入控制器
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 // 初始化场景
-const scene = new THREE.scene()
+const scene = new THREE.Scene()
 
 // 初始化相机
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000)
@@ -19,15 +22,15 @@ camera.updateProjectionMatrix()
 scene.add(camera)
 
 // 初始化渲染器
-const renderer = new THREE.WebGL1Renderer({
+const renderer = new THREE.WebGLRenderer({
   // 设置抗锯齿
-  antialias: ture
+  antialias: true
 })
 
 renderer.outputEncoding = THREE.sRGBEncoding
 
 // 设置渲染器宽高
-renderer.setSize(window.innerWidth / window.innerHeight)
+renderer.setSize(window.innerWidth, window.innerHeight)
 
 // 监听屏幕的大小修改渲染器宽高和相机比例
 window.addEventListener('resize', () => {
@@ -39,8 +42,12 @@ window.addEventListener('resize', () => {
 // 将渲染器画布放入页面
 document.body.appendChild(renderer.domElement)
 
+
+// 添加控制器
+const controls = new OrbitControls(camera, renderer.domElement)
+
 // 渲染函数
-function redner () {
+function render () {
   // 渲染场景
   renderer.render(scene, camera)
   // 引擎自动更新渲染器
@@ -48,3 +55,11 @@ function redner () {
 }
 render()
 
+
+// 添加平面
+const planeGeometry = new THREE.PlaneGeometry(100, 100)
+const planeMaterial = new THREE.MeshBasicMaterial({
+  color: 0xffffff
+})
+const plane = new THREE.Mesh(planeGeometry, planeMaterial)
+scene.add(plane)
