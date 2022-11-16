@@ -1,0 +1,14 @@
+{
+  "name": "three_project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Kori000/three_project.git",
+  "author": "Kori <kexin@korix.top>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  },
+  "dependencies": {
+    "three": "^0.146.0"
+  }
+}
